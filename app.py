@@ -25,7 +25,7 @@ def main():
         st.markdown("Share the link of the website whom you want to confess https://confess-your-feelings.streamlit.app/ ")
         sender_name = st.text_input("Who is confessing to you?")
         receiver = st.text_input("Who are you?")
-        st.markdown("Leave the next value blank if the one who confessed you is your crush/you like him/her")
+        st.markdown("Leave the next value blank if the one who confessed you is your crush or you like him/her")
         receiver_crush = st.text_input("If the person who sent, is not your crush? who do you want to send this to?")
         if st.button('Done!'):
             create_record(sender_name, receiver, receiver_crush)
