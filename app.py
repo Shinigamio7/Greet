@@ -22,6 +22,7 @@ def main():
     zero, first, second, third, fourth, fifth, sixth, seventh, eighth = st.tabs(['Hey!','Rose Day', 'Propose Day', 'Chocolate Day', 'Teddy Day', 'Promise Day', 'Hug Day', 'Kiss Day', "Valentine's Day"])
 
     with zero:
+        st.markdown("Share the link of the website whom you want to confess https://confess-your-feelings.streamlit.app/ ")
         sender_name = st.text_input("Who is confessing to you by sending this to you?")
         receiver = st.text_input("Who are you?")
         receiver_crush = st.text_input("Who is your crush? who do you want to send this to?")
