@@ -1,19 +1,6 @@
 import streamlit as st
 import os
-from pymongo import MongoClient
 
-
-client = MongoClient(os.getenv('mongostr'), serverSelectionTimeoutMS=60000)
-db = client['Experiment']
-Records = db['Records']
-
-def create_record(sender_name, reciever, receiver_crush):
-    new_record = {
-        "sender_name": sender_name,
-        "receiver": reciever,
-        "receiver_crush": receiver_crush
-    }
-    Records.insert_one(new_record)
 
 
 def main():
@@ -23,19 +10,7 @@ def main():
 
     with zero:
         st.markdown("Share the link of the website whom you want to confess https://confess-your-feelings.streamlit.app/ ")
-        sender_name = st.text_input("Who is confessing to you?")
-        receiver = st.text_input("Who are you?")
-        st.markdown("Leave the next value blank if the one who confessed you is your crush or you like him/her")
-        receiver_crush = st.text_input("If the person who sent, is not your crush? who do you want to send this to?")
-        if st.button('Done!'):
-            create_record(sender_name, receiver, receiver_crush)
-            st.success('Done! 💌')
-            if sender_name == receiver_crush:
-                st.markdown(f'**{sender_name}** wanted to wish you, **{receiver}**. Please check the tabs to see the wishes. 🌹')
 
-            else:
-                st.markdown(f'Looks like you like {receiver_crush}** but **{sender_name}** wanted to wish you **{receiver}**. Please check the tabs  to see the wishes. 🌹')
-    
     with first:
         if st.button('Click Me! 🌹'):
             st.markdown(''' > *Even a thousand Roses are no match to your beauty.*''') 
